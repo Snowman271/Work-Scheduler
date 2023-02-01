@@ -8,14 +8,28 @@ $(function () {
   var textTest = document.querySelector('.col-8 col-md-10 description');
   var textInput = $(textTest).val();
   var time = moment().format("h");
+  var saveBtnParent = document.getElementById('#hour')
 
   var weekDay = moment().format("dddd, MMMM Do");
   $("#currentDay").text(weekDay); 
   
-  $(savebtn).click(function() {
-    localStorage.setItem('savedData', $(this));
-    console.log($(this).children)
+  // $(savebtn).click(function() {
+  //   localStorage.setItem('savedData', $(this));
+  //   console.log(.var())
+  // });
+
+  $('#hour').on('click', 'btn' , function() {
+    console.log('clicked')
+    // localStorage.setItem('savedData', $(this));
+    // console.log($(this))
   });
+
+  
+
+// savebtn.addEventListener('click', function() {
+
+// });
+
 
     // jquery add, remove class
     $(".classRemove").removeClass("past");
