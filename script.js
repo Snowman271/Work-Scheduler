@@ -9,48 +9,45 @@ $(function () {
   var textInput = $(textTest).val();
   var time = moment().format("h");
   var saveBtnParent = document.getElementById('#hour')
-
+ 
+  //displays current date
   var weekDay = moment().format("dddd, MMMM Do");
   $("#currentDay").text(weekDay); 
-  
-  // $(savebtn).click(function() {
-  //   localStorage.setItem('savedData', $(this));
-  //   console.log(.var())
-  // });
-
-  $('#hour').on('click', 'btn' , function() {
-    console.log('clicked')
-    // localStorage.setItem('savedData', $(this));
-    // console.log($(this))
-  });
-
-  
-
-// savebtn.addEventListener('click', function() {
-
-// });
 
 
-    // jquery add, remove class
-    $(".classRemove").removeClass("past");
-    $(".classRemove").addClass("future");
+ 
+ //Looping through All boxes changing based on time
+  for (var i = 9; i <= 17; i++) {
+    if (i > time) {  
+      $('#hour-' + i).addClass("future");
+    }
+    else if (i < time) {
+      $('#hour-' + i).addClass("past");
+    }
+    else {
+      $('#hour-' + i).addClass("present");
+    }
+  }
+
+  //saving to local storage
   
 
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
+
+// make all buttons work seperatly
+  const buttons = document.querySelectorAll('.saveBtn')
+  buttons.forEach(function(currentBtn){
+  currentBtn.addEventListener('click', function() {
+
+  var currSaveBtn = currentBtn.parentElement;
+  var currSaveBtn2 = currSaveBtn[3].value;
+
+
+
+  var input = $("this").val();
+  localStorage.setItem("Apppointments", JSON.stringify(currSaveBtn));
+  console.log("saving...");
+  console.log(currSaveBtn);
+  console.log(currSaveBtn2);
+})
+  })
 });

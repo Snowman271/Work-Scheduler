@@ -57,3 +57,14 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+header {
+  margin: 0%;
+}
+
+.localStorageContainer {
+  text-align: center;
+  
+  font-size: 32px;
+  margin-top: 0%;
+}
