@@ -1,6 +1,7 @@
 # Work-Scheduler
 A interactive jQuery site used to make a schedule for your day
 With a Working and fully documented Project setup with Local storage and interactive time
+Setup Using js and Mainly Jquery
 
 Live Link: https://snowman271.github.io/Work-Scheduler/
 
