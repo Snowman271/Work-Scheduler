@@ -14,8 +14,16 @@ $(function () {
   var weekDay = moment().format("dddd, MMMM Do");
   $("#currentDay").text(weekDay); 
 
+//Adds Local storage information to Dom
+  for (var i = 8; i <= 17; i++) {
+  let key = JSON.parse(localStorage.getItem("hour-" + i));
+    if (key !== null) {
+     const currSaveBox = $('#hour-' + i).children('textarea');;
+     console.log(currSaveBox);
+     currSaveBox.text(key);
+    }
+ }
 
- 
  //Looping through All boxes changing based on time
   for (var i = 9; i <= 17; i++) {
     if (i > time) {  
@@ -29,25 +37,19 @@ $(function () {
     }
   }
 
-  //saving to local storage
-  
-
-
-// make all buttons work seperatly
+  // make all buttons work seperatly
   const buttons = document.querySelectorAll('.saveBtn')
   buttons.forEach(function(currentBtn){
   currentBtn.addEventListener('click', function() {
+  //saving to local storage
+  var currSaveBtn = currentBtn.parentElement.children[1].value;
+  var currSaveBtnId = currentBtn.parentElement.id;
 
-  var currSaveBtn = currentBtn.parentElement;
-  var currSaveBtn2 = currSaveBtn[3].value;
-
-
-
-  var input = $("this").val();
-  localStorage.setItem("Apppointments", JSON.stringify(currSaveBtn));
+  localStorage.setItem(currSaveBtnId, JSON.stringify(currSaveBtn));
   console.log("saving...");
   console.log(currSaveBtn);
-  console.log(currSaveBtn2);
-})
+  console.log("to " + currSaveBtnId + " key");
+  $('.localStorageContainer').text("Saved To Local Storage!");
   })
+ })
 });
